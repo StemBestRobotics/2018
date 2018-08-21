@@ -10,6 +10,57 @@ bool arcadeCheck = true;
 //deadBand - int that defines dead ranges for joystick
 int deadband = 15;
 
+/*
+NonLinearArcadeDrive - This is the non linear equivalant of arcade drive
+
+The nonLinear function will allow more control while still having full access to the motor speed.
+Right now it is using an exponent of two, this can be changed based on the severity of the curve. 
+*/
+void nonLinearArcadeDrive() {
+	int rightMotor;
+	int leftMotor;
+	
+	if ( abs(vexRT[Ch1]) < deadband && abs(vexRT[Ch2]) < deadband ){
+		leftMotor = 0;
+		rightMotor = 0;
+	} else if ( abs(vexRT[Ch1]) < deadband ){
+		leftMotor = vexRT[Ch2];
+		rightMotor = vexRT[Ch2]*-1;
+	} else if( abs(vexRT[Ch2]) < deadband ){
+		leftMotor = vexRT[Ch1];
+		rightMotor = vexRT[Ch1];
+	} else if( vexRT[Ch2] > deadband ){
+		leftMotor = ((vexRT[Ch2]+vexRT[Ch1]))/2;
+		rightMotor = ((vexRT[Ch2]-vexRT[Ch1]))/-2;
+	} else if( vexRT[Ch2] < -deadband ){
+		leftMotor = ((vexRT[Ch2]+vexRT[Ch1]))/2;
+		rightMotor = ((vexRT[Ch2]-vexRT[Ch1]))/-2;
+	}
+
+	motor[leftMotor] = math.pow((leftMotor/127), 2)*127*(leftMotor/abs(leftMotor));
+	motor[rightMotor] = math.pow((rightMotor/127), 2)*127*(rightMotor/abs(rightMotor));
+}
+
+/*
+NonLinearTankDrive - This is the non linear equivalant of tank drive
+
+The nonLinear function will allow more control while still having full access to the motor speed.
+Right now it is using an exponent of two, this can be changed based on the severity of the curve. 
+*/
+
+void nonLinearTankDrive() {
+	if ( abs(vexRT[Ch2]) < deadband ){
+		motor[rightMotor] = 0;
+	} else {
+		motor[rightMotor] = math.pow((vexRT[Ch2]/127), 2)*127*(vexRT[Ch2]/abs(vexRT[Ch2]));
+	}
+	if ( abs(vexRT[Ch3]) < deadband ){
+		motor[leftMotor] = 0;
+	} else {
+		motor[leftMotor] = math.pow((vexRT[Ch3]/127), 2)*127*(vexRT[Ch3]/abs(vexRT[Ch3]));
+	}
+}
+
 //arcade drive - function that controls arcade drive
 /*
 if both joysticks within dead range, do not move
