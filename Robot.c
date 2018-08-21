@@ -57,7 +57,6 @@ void arcadeDrive(){
 		if(!vexRT[Btn5U]&&arcadeCheck){
 			arcadeCheck = false;
 		}
-		return arcadeOn;
 	}
 
 	//drive - function that controls overall driving functionality
