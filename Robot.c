@@ -19,7 +19,8 @@ bool clawAngleCheck = true;														//holds value that makes sure that the 
 bool clawGrabToggle = true; 													//holds value that controls if the grabbing servo is toggled (open v closed)
 bool clawGrabCheck = true;														//holds value that makes sure that the grabbing servo is only toggled once per button press
 bool speedToggleCheck = true;													//holds value that makes sure speed is only toggled once per button press
-double motorSpeed = 127;																	//holds value that is current motor speed
+float motorSpeed = 127;																	//holds value that is current motor speed
+int deadband = 10;
 //------------------------------------------------------
 void speedToggle(){																		//SPEED TOGGLE: allows button to toggle current motor speed between 100% speed and 50% speed
 	if(vexRT[Btn8D] && speedToggleCheck){
@@ -36,9 +37,19 @@ void speedToggle(){																		//SPEED TOGGLE: allows button to toggle cur
 //------------------------------------------------------
 void driveMotors(){																		//DRIVE: Allows for inversion and controling of motors with joysticks
 	if(SensorValue(motorJumper) == 1){										//JUMPER: Checks for prescence of fused pin, and inverts motor control correspondingly
-		motor[driveMotor] = vexRT[Ch4]*(motorSpeed/127);			//INVERTED: Connects Joystick to motor
+		if (vexRT[Ch4] > deadband || vexRT[Ch4] < -deadband) {
+			motor[driveMotor] = vexRT[Ch4]*(motorSpeed/127); //INVERTED: Connects Joystick to motor
+		}
+		else {
+			motor[driveMotor] = 0;
+		}
 	}else{
-		motor[driveMotor] = -vexRT[Ch4]*(motorSpeed/127);			//NORMAL: Connects Joystick to motor
+		if (vexRT[Ch4] > deadband || vexRT[Ch4] < -deadband) {
+			motor[driveMotor] = -vexRT[Ch4]*(motorSpeed/127); //NORMAL: Connects Joystick to motor
+		}
+		else {
+			motor[driveMotor] = 0;
+		}		
 	}
 }
 //------------------------------------------------------
