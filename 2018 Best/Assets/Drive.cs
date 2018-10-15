@@ -14,11 +14,11 @@ public class Drive : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.position += transform.forward * 1 * Time.deltaTime;
+            transform.position -= transform.right * 1 * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.position -= transform.forward * 1 * Time.deltaTime;
+            transform.position += transform.right * 1 * Time.deltaTime;
         }
     }
 }
