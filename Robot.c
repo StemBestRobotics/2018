@@ -57,13 +57,22 @@ void armMotors(){																				//ARM: ALlows Joystick and Buttons to contr
 	motor[armRotateMotor] = vexRT[Ch1]*motorSpeed/127;			//ROTATE: assigns joystick to rotate arm
 	motor[armAngleMotor] = vexRT[Ch2]*motorSpeed/127;				//ANGLE: assigns joystick to raise arm
 	if(vexRT[Btn5U]){																				//TELESCOPE: assigns buttons to extend and retract arm
-		if(SensorValue(telescopeMax)==0){											//LIMIT: uses limit switch to prevent over-extending
+<<<<<<< HEAD
+		if(SensorValue(telescopeMax) == 1){											//LIMIT: uses limit switch to prevent over-extending
+=======
+		if(!SensorValue(telescopeMax)){											//LIMIT: uses limit switch to prevent over-extending
+>>>>>>> b187d5c04b76cb901d749bf9c9c256416598e33f
 			motor[armTelescopeMotor] = 127*motorSpeed/127;
 		}else{
 			motor[armTelescopeMotor] = 0;
 		}
 	}else if(vexRT[Btn5D]){
-		if(SensorValue(telescopeMin)==0){
+<<<<<<< HEAD
+		if(SensorValue(telescopeMin) == 0)
+			{
+=======
+		if(!SensorValue(telescopeMin)){
+>>>>>>> b187d5c04b76cb901d749bf9c9c256416598e33f
 			motor[armTelescopeMotor] = -127*motorSpeed/127;			//LIMIT: uses limit switch to prevent over-retracting
 		}else{
 			motor[armTelescopeMotor] = 0;
@@ -113,7 +122,7 @@ void clawServos(){																			//CLAW: Allows Controller to control moveme
 }
 //------------------------------------------------------
 task main(){																						//main start task
-	while(1==1){																					//gurantees that the robot will constantly run throughout game
+	while(1==1) {//gurantees that the robot will constantly run throughout game
 		speedToggle();
 		driveMotors();
 		armMotors();
