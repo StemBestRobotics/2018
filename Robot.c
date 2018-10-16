@@ -3,7 +3,7 @@
 #pragma config(Sensor, dgtl3,  telescopeMin,   sensorTouch)
 #pragma config(Motor,  port2,           driveMotor,    tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port3,           armRotateMotor, tmotorVex393_MC29, openLoop)
-#pragma config(Motor,  port4,           armAngleMotor, tmotorVex393_MC29, openLoop)
+#pragma config(Motor,  port4,           armAngleMotor, tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port5,           armTelescopeMotor, tmotorVex393_MC29, openLoop)
 #pragma config(Motor,  port6,           clawRotateServo, tmotorServoStandard, openLoop)
 #pragma config(Motor,  port7,           clawAngleServo, tmotorServoStandard, openLoop)
