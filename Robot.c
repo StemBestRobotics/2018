@@ -23,14 +23,14 @@ float motorSpeed = 127;																	//holds value that is current motor spee
 int deadband = 10;																			//holds value that determines size of deadband
 //------------------------------------------------------
 void speedToggle(){																		//SPEED TOGGLE: allows button to toggle current motor speed between 100% speed and 50% speed
-	if(vexRT[Btn8D] && speedToggleCheck){
+	if(vexRT[Btn8A] && speedToggleCheck){
 		speedToggleCheck=false;
 		if(motorSpeed==127){
 			motorSpeed=63.5;
 		}else{
 			motorSpeed=127;
 		}
-	}else if(!vexRT[Btn8D]){
+	}else if(!vexRT[Btn8A]){
 		speedToggleCheck=true;
 	}
 }
