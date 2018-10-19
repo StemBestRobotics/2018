@@ -98,7 +98,7 @@ void clawServos(){																			//CLAW: Allows Controller to control moveme
 	}else if(!vexRT[Btn6D]){
 		clawAngleCheck = true;
  	}
- 	if(vexRT[Btn7D] && clawGrabCheck){										//GRAB TOGGLE: allows buttons to toggle the grab state of claw between open and closed (0 and 90 degrees respectively)
+ 	if(vexRT[Btn8D] && clawGrabCheck){										//GRAB TOGGLE: allows buttons to toggle the grab state of claw between open and closed (0 and 90 degrees respectively)
 		clawGrabCheck = false;
 		if(clawGrabToggle){
  			motor[clawGrabServo] = 101.6;
@@ -107,7 +107,7 @@ void clawServos(){																			//CLAW: Allows Controller to control moveme
  			motor[clawGrabServo] = -127;
 			clawGrabToggle = true;
 		}
-	}else if(!vexRT[Btn7D]){
+	}else if(!vexRT[Btn8D]){
 		clawGrabCheck = true;
  	}
 }
