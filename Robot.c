@@ -14,23 +14,22 @@
 //VARIABLES:
 bool clawRotateToggle = true; 													//holds value that controls which way the claw-rotate servo is toggled (left v right)
 bool clawRotateCheck = true;														//holds value that makes sure that the claw-rotate servo is only toggled once per button press
-bool clawAngleToggle = true; 														//holds value that controls which way the claw-angle servo is toggled (up v down)
-bool clawAngleCheck = true;															//holds value that makes sure that the claw-angle servo is only toggled once per button press
-bool clawGrabToggle = true; 														//holds value that controls if the grabbing servo is toggled (open v closed)
+float clawAngle	= 0;												              	//holds value that makes sure that the claw-angle servo is only toggled once per button press
+bool clawGrabToggle = false; 														//holds value that controls if the grabbing servo is toggled (open v closed)
 bool clawGrabCheck = true;															//holds value that makes sure that the grabbing servo is only toggled once per button press
 bool speedToggleCheck = true;														//holds value that makes sure speed is only toggled once per button press
 float motorSpeed = 127;																	//holds value that is current motor speed
 int deadband = 10;																			//holds value that determines size of deadband
 //------------------------------------------------------
 void speedToggle(){																		//SPEED TOGGLE: allows button to toggle current motor speed between 100% speed and 50% speed
-	if(vexRT[Btn8A] && speedToggleCheck){
+	if(vexRT[Btn8R] && speedToggleCheck){
 		speedToggleCheck=false;
 		if(motorSpeed==127){
 			motorSpeed=63.5;
 		}else{
 			motorSpeed=127;
 		}
-	}else if(!vexRT[Btn8A]){
+	}else if(!vexRT[Btn8R]){
 		speedToggleCheck=true;
 	}
 }
@@ -52,6 +51,16 @@ void driveMotors(){																			//DRIVE: Allows for inversion and controli
 		}
 	}
 }
+
+void nonLinearTankDrive() {
+	if ( !(vexRT[Ch4] > deadband || vexRT[Ch4] < -deadband) ){
+		motor[driveMotor] = 0;
+	} else {
+		float x = vexRT[Ch4];
+		motor[driveMotor] = pow((x/127), 2)  * 127 *  (x/abs(x))  ;// * (SensorValue(motorJumper)*2-1);
+	}
+}
+
 //------------------------------------------------------
 void armMotors(){																				//ARM: ALlows Joystick and Buttons to control the movement of Arm
 	motor[armRotateMotor] = vexRT[Ch1]*motorSpeed/127;			//ROTATE: assigns joystick to rotate arm
@@ -74,30 +83,12 @@ void armMotors(){																				//ARM: ALlows Joystick and Buttons to contr
 }
 //------------------------------------------------------
 void clawServos(){																			//CLAW: Allows Controller to control movement of claw
-	if(vexRT[Btn6U] && clawRotateCheck){										//ROTATE TOGGLE: allows buttons to toggle the rotation of claw between 0 & 90 degrees
-		clawRotateCheck = false;
-		if(clawRotateToggle){
- 			motor[clawRotateServo] = 101.6;
- 			clawRotateToggle = false;
- 		}else{
- 			motor[clawRotateServo] = -127;
-			clawRotateToggle = true;
-		}
-	}else if(!vexRT[Btn6U]){
-		clawRotateCheck = true;
+ 	if(vexRT[Btn6U]){										//ANGLE TOGGLE: allows buttons to toggle the angle of claw between 0 & 90 degrees
+		clawAngle = 127;
+	}else if(vexRT[Btn6D]){
+		clawAngle = 101.6;
  	}
- 	if(vexRT[Btn6D] && clawAngleCheck){										//ANGLE TOGGLE: allows buttons to toggle the angle of claw between 0 & 90 degrees
-		clawAngleCheck = false;
-		if(clawAngleToggle){
- 			motor[clawAngleServo] = 101.6;
- 			clawAngleToggle = false;
- 		}else{
- 			motor[clawAngleServo] = -127;
-			clawAngleToggle = true;
-		}
-	}else if(!vexRT[Btn6D]){
-		clawAngleCheck = true;
- 	}
+ 	motor[clawAngleServo] = clawAngle;
  	if(vexRT[Btn8D] && clawGrabCheck){										//GRAB TOGGLE: allows buttons to toggle the grab state of claw between open and closed (0 and 90 degrees respectively)
 		clawGrabCheck = false;
 		if(clawGrabToggle){
@@ -115,7 +106,8 @@ void clawServos(){																			//CLAW: Allows Controller to control moveme
 task main(){																						//main start task
 	while(1==1) {//gurantees that the robot will constantly run throughout game
 		speedToggle();
-		driveMotors();
+		nonLinearTankDrive();
+		//driveMotors();
 		armMotors();
 		clawServos();
 	}
