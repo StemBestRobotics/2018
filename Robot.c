@@ -84,11 +84,11 @@ void armMotors(){																				//ARM: ALlows Joystick and Buttons to contr
 //------------------------------------------------------
 void clawServos(){																			//CLAW: Allows Controller to control movement of claw
  	if(vexRT[Btn6U]){										//ANGLE TOGGLE: allows buttons to toggle the angle of claw between 0 & 90 degrees
-		clawAngle = 127;
+		motor[clawAngleServo] = 127;
 	}else if(vexRT[Btn6D]){
-		clawAngle = 101.6;
+		motor[clawAngleServo] = 101.6;
  	}
- 	motor[clawAngleServo] = clawAngle;
+
  	if(vexRT[Btn8D] && clawGrabCheck){										//GRAB TOGGLE: allows buttons to toggle the grab state of claw between open and closed (0 and 90 degrees respectively)
 		clawGrabCheck = false;
 		if(clawGrabToggle){
@@ -106,8 +106,8 @@ void clawServos(){																			//CLAW: Allows Controller to control moveme
 task main(){																						//main start task
 	while(1==1) {//gurantees that the robot will constantly run throughout game
 		speedToggle();
-		nonLinearTankDrive();
-		//driveMotors();
+		//nonLinearTankDrive();
+		driveMotors();
 		armMotors();
 		clawServos();
 	}
