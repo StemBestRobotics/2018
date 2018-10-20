@@ -101,6 +101,13 @@ void clawServos(){																			//CLAW: Allows Controller to control moveme
 	}else if(!vexRT[Btn8D]){
 		clawGrabCheck = true;
  	}
+
+ 	if (vexRT[Btn8R]) {
+ 		motor[clawRotateServo] = 127;
+ 	}
+ 	else if(vexRT[Btn8L]) {
+ 		motor[clawRotateServo] = -127;
+ 	}
 }
 //------------------------------------------------------
 task main(){																						//main start task
