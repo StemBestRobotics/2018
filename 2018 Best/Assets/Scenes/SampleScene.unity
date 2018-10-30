@@ -118,17 +118,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 1e64d4d4172211545973612140e1c60e,
     type: 3}
   m_PrefabInternal: {fileID: 312368320}
---- !u!114 &41243917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 41243916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb459d5775178854585f02154a24ae5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &81854676 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 0d0ea1fd2e5c34a4391ebe5dd6e730cb,
@@ -167,6 +156,16 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 96c0ac885864a34499db3dd098f1d97e, type: 3}
+--- !u!1 &201662321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 2f77ba78d5c87e844a79c775b0c859a0,
+    type: 3}
+  m_PrefabInternal: {fileID: 1206653337}
+--- !u!1 &297504857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: a945a91a899e68a4e834e7787d5ee9e7,
+    type: 3}
+  m_PrefabInternal: {fileID: 682591359}
 --- !u!1001 &312368320
 Prefab:
   m_ObjectHideFlags: 0
@@ -225,6 +224,10 @@ Prefab:
     - target: {fileID: 400000, guid: 1e64d4d4172211545973612140e1c60e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 29.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1e64d4d4172211545973612140e1c60e, type: 3}
+      propertyPath: m_Name
+      value: RobotArmCasing
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e64d4d4172211545973612140e1c60e, type: 3}
@@ -342,6 +345,10 @@ Prefab:
     - target: {fileID: 400000, guid: 876c87e174c691443a3c327c9a534d17, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 876c87e174c691443a3c327c9a534d17, type: 3}
+      propertyPath: m_Name
+      value: RobotClawBase
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 876c87e174c691443a3c327c9a534d17, type: 3}
@@ -481,6 +488,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6030f2ae012ee7e4f8644fd97df0594a, type: 3}
+      propertyPath: m_Name
+      value: RobotBase
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6030f2ae012ee7e4f8644fd97df0594a, type: 3}
   m_IsPrefabAsset: 0
@@ -570,7 +581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 540862298}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Current2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -726,6 +737,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.85
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: a945a91a899e68a4e834e7787d5ee9e7, type: 3}
+      propertyPath: m_Name
+      value: RobotArmExtension
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a945a91a899e68a4e834e7787d5ee9e7, type: 3}
   m_IsPrefabAsset: 0
@@ -796,6 +811,10 @@ Prefab:
     - target: {fileID: 400000, guid: bc142e01522d71243bcb2978358c3cdb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bc142e01522d71243bcb2978358c3cdb, type: 3}
+      propertyPath: m_Name
+      value: RobotArm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc142e01522d71243bcb2978358c3cdb, type: 3}
@@ -935,6 +954,10 @@ Prefab:
     - target: {fileID: 400002, guid: cee9a176b9597374ca6b574f479a9a0f, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: cee9a176b9597374ca6b574f479a9a0f, type: 3}
+      propertyPath: m_Name
+      value: GameField
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cee9a176b9597374ca6b574f479a9a0f, type: 3}
@@ -1146,6 +1169,11 @@ MeshCollider:
   m_CookingOptions: -2
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1144737953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 96c0ac885864a34499db3dd098f1d97e,
+    type: 3}
+  m_PrefabInternal: {fileID: 1539057388}
 --- !u!1001 &1206653337
 Prefab:
   m_ObjectHideFlags: 0
@@ -1196,6 +1224,10 @@ Prefab:
     - target: {fileID: 400000, guid: 2f77ba78d5c87e844a79c775b0c859a0, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2f77ba78d5c87e844a79c775b0c859a0, type: 3}
+      propertyPath: m_Name
+      value: RobotArmTelescope
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f77ba78d5c87e844a79c775b0c859a0, type: 3}
@@ -1290,6 +1322,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1235630221}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1412855477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: f6c4ce9b7189e394b8203dbc4bc49f8b,
+    type: 3}
+  m_PrefabInternal: {fileID: 1688302010}
 --- !u!1001 &1539057388
 Prefab:
   m_ObjectHideFlags: 0
@@ -1329,6 +1366,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 96c0ac885864a34499db3dd098f1d97e, type: 3}
+      propertyPath: m_Name
+      value: RobotClawWrist
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96c0ac885864a34499db3dd098f1d97e, type: 3}
   m_IsPrefabAsset: 0
@@ -1347,17 +1388,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: bc142e01522d71243bcb2978358c3cdb,
     type: 3}
   m_PrefabInternal: {fileID: 691025270}
---- !u!114 &1557470645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1557470643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 899a851d68cbc6443a153bb4ea8fb453, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1573534636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,7 +1482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1583084291}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Robot_and_Current
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1515,6 +1545,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f6c4ce9b7189e394b8203dbc4bc49f8b, type: 3}
+      propertyPath: m_Name
+      value: RobotClawGrab
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6c4ce9b7189e394b8203dbc4bc49f8b, type: 3}
   m_IsPrefabAsset: 0
@@ -1535,7 +1569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1703727360
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1603,7 +1637,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1748341964 stripped
 GameObject:
@@ -1615,7 +1649,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 6030f2ae012ee7e4f8644fd97df0594a,
     type: 3}
   m_PrefabInternal: {fileID: 476733697}
---- !u!114 &1748341966
+--- !u!114 &1748341967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1623,83 +1657,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 1748341964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f92570a60c0ec52408f80179a8bf146c, type: 3}
+  m_Script: {fileID: 11500000, guid: ef3c27c942e94a44a8a840a4283f6706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  robotArm: {fileID: 1557470643}
+  robotArmHousing: {fileID: 41243916}
+  robotArmExtension: {fileID: 297504857}
+  robotArmTelescope: {fileID: 201662321}
+  robotClawBase: {fileID: 1975625759}
+  robotClawWrist: {fileID: 1144737953}
+  robotClawGrab: {fileID: 1412855477}
+  speed: 100
+  speedtest: 0.05
 --- !u!4 &1825861189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: cee9a176b9597374ca6b574f479a9a0f,
     type: 3}
   m_PrefabInternal: {fileID: 834945341}
---- !u!1 &1950767138
+--- !u!1 &1937702998 stripped
 GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 6030f2ae012ee7e4f8644fd97df0594a,
+    type: 3}
+  m_PrefabInternal: {fileID: 476733697}
+--- !u!64 &1937703002
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1950767141}
-  - component: {fileID: 1950767140}
-  - component: {fileID: 1950767139}
-  m_Layer: 0
-  m_Name: Terrain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!154 &1950767139
-TerrainCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1950767138}
+  m_GameObject: {fileID: 1937702998}
   m_Material: {fileID: 0}
-  m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 2a89353a535c53448893ec7a8bc6a7c7, type: 2}
-  m_EnableTreeColliders: 1
---- !u!218 &1950767140
-Terrain:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1950767138}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_TerrainData: {fileID: 15600000, guid: 2a89353a535c53448893ec7a8bc6a7c7, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 1000
-  m_HeightmapMaximumLOD: 0
-  m_CastShadows: 1
-  m_DrawHeightmap: 1
-  m_DrawTreesAndFoliage: 1
-  m_ReflectionProbeUsage: 1
-  m_MaterialType: 0
-  m_LegacySpecular:
-    serializedVersion: 2
-    rgba: 4286545791
-  m_LegacyShininess: 0.078125
-  m_MaterialTemplate: {fileID: 0}
-  m_BakeLightProbesForTrees: 1
-  m_PreserveTreePrototypeLayers: 0
-  m_ScaleInLightmap: 0.1024
-  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
---- !u!4 &1950767141
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1950767138}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 6030f2ae012ee7e4f8644fd97df0594a, type: 3}
+--- !u!1 &1975625759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 876c87e174c691443a3c327c9a534d17,
+    type: 3}
+  m_PrefabInternal: {fileID: 378271474}

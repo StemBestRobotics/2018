@@ -1,0 +1,2 @@
+C:\Users\User\Documents\GitHub\2018-BEST\2018 Best\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\2018-BEST\2018 Best\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
