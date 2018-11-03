@@ -21,14 +21,14 @@ public class robotBehaviourScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position += new Vector3(Input.GetAxis("robotMovement") * Time.deltaTime * speed * 0.04f, 0,0);
+        transform.localPosition += new Vector3(Input.GetAxis("robotMovement") * Time.deltaTime * speed * 0.04f, 0,0);
         robotArm.transform.Rotate(0, Input.GetAxis("robotArmRotate") * Time.deltaTime * speed * 0.5f, 0);
-        Debug.Log(Input.GetAxis("robotArmRotate") * Time.deltaTime * speed);
         robotArmHousing.transform.Rotate(0,0,Input.GetAxis("robotArmAngle") * Time.deltaTime * speed * 0.4f);
         robotArmExtension.transform.localPosition += new Vector3(Input.GetAxis("robotArmExtension") * Time.deltaTime * speed * 0.04f, 0, 0);
         robotArmTelescope.transform.localPosition += new Vector3(Input.GetAxis("robotArmExtension") * Time.deltaTime * speed * 0.04f, 0, 0);
-
-
+        robotClawBase.transform.Rotate(0, Input.GetAxis("robotClawRotate") * Time.deltaTime * speed, 0);
+        robotClawWrist.transform.Rotate(0, 0, Input.GetAxis("robotClawAngle") * Time.deltaTime * speed);
+        robotClawGrab.transform.Rotate(0, 0, Input.GetAxis("robotClawGrab") * Time.deltaTime * speed );
         /*
         if (Input.GetKey(KeyCode.D))
         {
