@@ -41,8 +41,6 @@ No Motors or Servos
 bool speedToggleCheck = true;														//A boolean, speedToggleCheck, that holds a value that prevents the motorSpeed float from being changed more than once per button press
 float motorSpeed = 1;																		//A float, motorSpeed, that holds the value of the multiplier for the speed of the motors
 int deadband = 10;                                      //An integer, deadband, that holds the value for the size of the deadbands
-bool doorToggle = false;
-bool doorCheck = true;
 bool clawGrabToggle = false; 														//A boolean, clawGrabToggle, that holds a value that determines the state that the claw-grabbing servo is in (open v closed)
 bool clawGrabCheck = true;
 int claw = 1;
@@ -113,19 +111,10 @@ void clawServos(){											 								//CLAW: Allows Controller to control movem
 	}
 	
 	//---------------------------------
-	if(vexRT[Btn8D] && doorCheck){										 
-		doorCheck=false;																
-		if(doorToggle){																		
-			motor[doorServo] = 101.6;	
-			doorToggle = false;
-			wait1Msec(100);
-		}else{
-			motor[doorServo] = -127;
-			doorToggle=true;
-			wait1Msec(100);
-		}																											
-	}else if(!vexRT[Btn8R]){																
-		doorCheck=true;																
+	if(vexRT[Btn8D]){										 
+		motor[doorServo] = 127;																												
+	}else if(!vexRT[Btn8D]){																
+		motor[doorServo] = -127;															
 	}
 	//---------------------------------
 	if(vexRT[Btn7D] && clawGrabCheck){										//BUTTON true: Checks if button 7D is being pressed, and if clawGrabCheck is true, if they are both true:
